@@ -1,0 +1,30 @@
+// -------- Start of get --------
+// firebase-arduino
+int number = Firebase.getInt("/number");
+float temp = Firebase.getFloat("/temp");
+String name = Firebase.getString("/name");
+bool online = Firebase.getBool("isOnline");
+JsonObject& list = Firebase.get("list");
+// --------- END of get ---------
+
+// -------- Start of set --------
+// firebase-arduino
+Firebase.setInt("/number", 10);
+Firebase.setFloat("/temp", 20.25);
+Firebase.setString("/name", "IOXhop");
+Firebase.setBool("isOnline", true);
+JsonObject& objectList = StaticJsonBuffer<200>().createObject();
+object1["autoSave"] = true;
+Firebase.set("config", objectList);
+// --------- END of set ---------
+
+// -------- Start of push --------
+// firebase-arduino
+Firebase.pushInt("/list-number", 10);
+Firebase.pushFloat("/list-temp", 20.25);
+Firebase.pushString("/list-name", "IOXhop");
+Firebase.pushBool("list-isOnline", true);
+JsonObject& objectList = StaticJsonBuffer<200>().createObject();
+object1["autoSave"] = true;
+Firebase.set("list-config", objectList);
+// --------- END of push ---------
