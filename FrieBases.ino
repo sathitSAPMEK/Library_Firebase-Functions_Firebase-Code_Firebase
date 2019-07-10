@@ -1,10 +1,10 @@
 #include <WiFi.h>
 #include "FirebaseESP32.h"
 
-#define FIREBASE_HOST "hw-bootcamp.firebaseio.com" //Do not include https:// in FIREBASE_HOST
-#define FIREBASE_AUTH "Wleb7G85te03i9RRbZsU9X5Za56g4xwD5D3jMNLG"
-#define WIFI_SSID "PEET"
-#define WIFI_PASSWORD "10042541"
+#define FIREBASE_HOST "HOTS" //Do not include https:// in FIREBASE_HOST
+#define FIREBASE_AUTH "Secret"
+#define WIFI_SSID "User_Name"
+#define WIFI_PASSWORD "Password"
 
 FirebaseData firebaseData;
 
@@ -32,15 +32,5 @@ void setup() {
 }
 
 void loop() {
- //SET  
- Firebase.setInt(firebaseData,"/set/int",100);
- Firebase.setString(firebaseData,"/set/String","Hello");
- Firebase.setDouble(firebaseData,"/set/Double",2.5);
- //PUSH
- Firebase.pushInt(firebaseData,"/Psh/Int",100);
- delay(100);
- //GAT
- if(Firebase.getString(firebaseData,"/LED/Satatus")){
-  Serial.println(firebaseData.stringData());
- }
+ 
 }
