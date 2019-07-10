@@ -5,12 +5,19 @@ float temp = Firebase.getFloat(firebaseData,"/temp");
 String name = Firebase.getString(firebaseData,"/name");
 bool online = Firebase.getBool(firebaseData,"isOnline");
 JsonObject& list = Firebase.get(firebaseData,"list");
+
+get-and-print 
+
+ if(Firebase.getString(firebaseData,"/LED/Satatus")){
+  Serial.println(firebaseData.stringData());
+ }
 // --------- END of get ---------
 
 // -------- Start of set --------
 // firebase-arduino
 Firebase.setInt(firebaseData,"/number", 10);
 Firebase.setFloat(firebaseData,"/temp", 20.25);
+Firebase.setDouble(firebaseData,"/set/Double",2.5);
 Firebase.setString(firebaseData,"/name", "IOXhop");
 Firebase.setBool(firebaseData,"isOnline", true);
 JsonObject& objectList = StaticJsonBuffer<200>().createObject();
@@ -22,6 +29,7 @@ Firebase.set(firebaseData,"config", objectList);
 // firebase-arduino
 Firebase.pushInt(firebaseData,"/list-number", 10);
 Firebase.pushFloat(firebaseData,"/list-temp", 20.25);
+Firebase.pushDouble(firebaseData,"/set/Double",2.5);
 Firebase.pushString(firebaseData,"/list-name", "IOXhop");
 Firebase.pushBool(firebaseData,"list-isOnline", true);
 JsonObject& objectList = StaticJsonBuffer<200>().createObject();
