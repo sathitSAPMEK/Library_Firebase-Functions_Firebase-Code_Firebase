@@ -5,12 +5,7 @@ float temp = Firebase.getFloat(firebaseData,"/temp");
 String name = Firebase.getString(firebaseData,"/name");
 bool online = Firebase.getBool(firebaseData,"isOnline");
 JsonObject& list = Firebase.get(firebaseData,"list");
-
-get-and-print 
-
- if(Firebase.getString(firebaseData,"/LED/Satatus")){
-  Serial.println(firebaseData.stringData());
- }
+Serial.println(firebaseData.TypeData());
 // --------- END of get ---------
 
 // -------- Start of set --------
